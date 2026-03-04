@@ -7,12 +7,20 @@ return {
   },
   config = function()
     require("nvim-tree").setup({
+      git = {
+        enable = false,
+      },
       sort_by = "case_sensitive",
       view = {
         width = 30,
       },
       renderer = {
         group_empty = true,
+        icons = {
+          show = {
+            git = false,
+          },
+        },
       },
       filters = {
         dotfiles = false,
