@@ -17,6 +17,9 @@ return {
         },
       })
 
+      -- Set up lspconfig.
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
       -- Shared on_attach function
       local on_attach = function(_, bufnr)
         local nmap = function(keys, func, desc)
@@ -41,7 +44,10 @@ return {
       -- NOTE: We do NOT call lspconfig.rust_analyzer.setup() here
       -- because rustaceanvim handles it automatically.
       -- If you add other LSPs (like pyright, tsserver), add them here:
-      -- require('lspconfig').pyright.setup({ on_attach = on_attach })
+      -- require('lspconfig').pyright.setup({
+      --   on_attach = on_attach,
+      --   capabilities = capabilities,
+      -- })
     end,
   },
 
